@@ -10,7 +10,7 @@ mongoose.promise = global.Promise
 const app = express()
 
 // Connect to MongoDB and set up message for when 
-// Mongo
+// Mongo connects successfully or errors out
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true})
 const connection = mongoose.connection
 
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 })
 
 // set app to listen on port 3000
-const PORT = process.env.PORT || 3000 
+const PORT = process.env.PORT || 3001 
 app.listen(PORT, () => {
     console.log("App listening on ", PORT)
 })

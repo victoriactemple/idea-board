@@ -3,7 +3,7 @@ require("dotenv").config()
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-
+const UsersController = require('./routes/UsersController')
 mongoose.promise = global.Promise
 
 // create a new express app
@@ -28,10 +28,15 @@ connection.on ('connected', () => {
 app.use(express.static(`${__dirname}/client/build`))
 app.use(bodyParser.json())
 
+// Start adding routes
+app.use('/api/users', UsersController)
+
 
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)
 })
+
+
 
 // set app to listen on port 3000
 const PORT = process.env.PORT || 3001 

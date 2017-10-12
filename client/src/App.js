@@ -22,7 +22,7 @@ class App extends Component {
          </div>
           <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/user" component={IdeaPage} />
+              <Route exact path="/idea/:userId" component={IdeaPage} />
               <Route exact path="/login" component={LoginPage} />
           </Switch>
 

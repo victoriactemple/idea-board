@@ -12,6 +12,17 @@ router.get('/', async (req, res) => {
     }
 })  
 
+router.get('/:id', async (req, res) => {
+    try {
+        //Mongoose method of fidning byId
+    const user = await User.findById(req.params.id)
+    // it's just going to send json instead of sending a string of handlebars
+    res.json(user)
+    } catch (err) {
+        res.send(err)
+    }
+})  
+
 router.post('/', async (req, res) => {
     try{
     // here we create a new instance the user

@@ -31,19 +31,18 @@ componentWillMount(){
     
 
     // _id because that's how Mongoose sends it back to us
-  render () {
-    return (
-      <div>
-        <h1>Log-In</h1>
-        <h3>Please Select an Existing User</h3>
-        {this.state.users.map(user => {
-          return (<div><Link key={user._id} to={`/idea/${user._id}`}>{user.userName}</Link></div>)
-    
-        })}
-        <SignUpForm />
-      </div>
-    )
+    render () {
+      return (
+        <div>
+          <h1>Log-In</h1>
+          <h3>Please Select an Existing User</h3>
+          {this.state.users.map(user => {
+            return (<div><Link key={user._id} to={`/idea/${user._id}`}>{user.userName}</Link></div>)
+          })}
+          <SignUpForm />
+        </div>
+      )
+    }
   }
-}
 
 export default LoginPage
